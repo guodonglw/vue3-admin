@@ -75,7 +75,7 @@ export default {
   }
 
   .content-area {
-    flex: 1 0 auto;
+    flex: 1 1 auto;
     // border: 2px solid blue;
     padding: 20px 20px;
     overflow: auto;

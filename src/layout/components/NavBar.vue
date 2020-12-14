@@ -1,6 +1,7 @@
 <template>
   <div class="nav-container">
     <el-menu
+      :default-active='active'
       class="el-menu-vertical-demo"
       @select="handleSelect"
       :collapse="fold"
@@ -16,9 +17,9 @@
 </template>
 
 <script>
-import { computed, onMounted } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { useStore } from 'vuex'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import $ from 'jquery'
 import SubMenu from './components/SubMenu.vue'
 import MenuItem from './components/MenuItem.vue'
@@ -31,20 +32,18 @@ export default {
   setup () {
     const store = useStore() // 获取vuex实例
     const router = useRouter() // 获取router实例
+    const route = useRoute() // 获取当前route信息
     const fold = computed(() => store.state.fold)
     const routes = computed(() => router.options.routes)
+    const active = computed(() => route.path)
 
     // 处理菜单栏选择事件
-    const handleSelect = (id) => {
-      $('.el-menu > .is-active').removeClass('is-active')
-      $(`#${id.substring(1)}`).addClass('is-active')
+    const handleSelect = (item) => {
+      console.log(item)
     }
 
-    onMounted(() => {
-      $(`#homepage`).addClass('is-active')
-    })
-
     return {
+      active,
       fold,
       routes,
       handleSelect

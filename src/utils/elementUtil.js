@@ -1,10 +1,9 @@
-import { useNotify } from 'element3'
+import {  Message } from 'element3'
 
-export const openMsg = (message = '', type = 'info', title = '提示') => {
-  const notify = useNotify()
-  notify({
-    title,
+export const openMsg = (message, type) => {
+  Message({
     message,
-    type
+    type,
+    center: true
   })
 }

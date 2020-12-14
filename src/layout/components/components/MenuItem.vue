@@ -1,5 +1,5 @@
 <template>
-  <el-menu-item :index="menu.path" :id='id'>
+  <el-menu-item :index="menu.path">
     <div style="display: block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis">
       <i :class="menu.iconCls"></i>
       <slot name="title">
