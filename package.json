@@ -6,8 +6,7 @@
     "build": "vite build"
   },
   "dependencies": {
-    "echarts": "^4.9.0",
-    "element3": "0.0.30",
+    "element3": "0.0.31",
     "jquery": "^3.5.1",
     "vue": "^3.0.4",
     "vue-router": "^4.0.1",
