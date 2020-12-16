@@ -7,17 +7,29 @@
     <section class="part-two margin-top-ten">
       <PartTwo />
     </section>
+
+    <section class="part-three margin-top-twenty">
+      <PartThree />
+    </section>
+
+    <section class="part-four margin-top-ten">
+      <PartFour />
+    </section>
   </div>
 </template>
 
 <script>
 import PartOne from './components/PartOne.vue'
 import PartTwo from './components/PartTwo.vue'
+import PartThree from './components/PartThree.vue'
+import PartFour from './components/PartFour.vue'
 
 export default {
   components: {
     PartOne,
-    PartTwo
+    PartTwo,
+    PartThree,
+    PartFour
   }
 }
 </script>
@@ -25,14 +37,10 @@ export default {
 <style lang="less" scoped>
 .container {
   font-size: 1.5rem;
-  border: 1px solid red;
+  // border: 1px solid red;
 }
 
-.part-one {
-  // border: 1px solid blue;
-}
-
-.part-two {
+.part-one, .part-two, .part-three, .part-four {
   // border: 1px solid blue;
 }
 </style>

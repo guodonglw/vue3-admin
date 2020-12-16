@@ -75,7 +75,9 @@ export default {
     }
 
     onMounted (() => {
-      drawChart()
+      setTimeout(() => {
+        drawChart()
+      })
       window.addEventListener('resize', resize)
     })
 
@@ -91,5 +93,6 @@ export default {
 <style lang='less'>
 .part-two-area {
   // border: 3px solid gold;
+  box-shadow: 1px 1px 1px rgba(0,0,0,.2);
 }
 </style>

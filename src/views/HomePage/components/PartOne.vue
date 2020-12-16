@@ -55,59 +55,60 @@ export default {
   justify-content: space-between;
   flex-flow: row wrap;
   // border: 1px solid blue;
-}
 
-.one-item {
-  // border: 1px solid red;
-  padding: 5px;
-  flex: 0 0 24%;
-  background-color: rgba(	176,196,222, 0.3);
-  border-radius: 5px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-width: 200px;
-  margin-bottom: 10px;
+  .one-item {
+    // border: 1px solid red;
+    padding: 5px;
+    flex: 0 0 24%;
+    background-color: rgba(	176,196,222, 0.3);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 200px;
+    margin-bottom: 10px;
 
-  &:hover {
-    .right-area {
-      .icon-box {
-        transform: rotate(0deg);
-        color: #7b1fa2;
-        border: 3px solid #8e44ad;
-        opacity: 1;
-        font-weight: bold;
+    &:hover {
+      .right-area {
+        .icon-box {
+          transform: rotate(0deg);
+          color: #7b1fa2;
+          border: 3px solid #8e44ad;
+          opacity: 1;
+          font-weight: bold;
+        }
       }
     }
-  }
 
-  .left-area {
-    flex: 0 0 60%;
-    // border: 1px solid gold;
-    text-align: center;
-    color: rgba( 	47,79,79, 1);
-    font-weight: 500;
-  }
+    .left-area {
+      flex: 0 0 60%;
+      // border: 1px solid gold;
+      text-align: center;
+      color: rgba( 	47,79,79, 1);
+      font-weight: 500;
+    }
 
-  .right-area {
-    flex: 1 0 auto;
-    // border: 1px solid red;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .icon-box {
-      width: 50px;
-      height: 50px;
-      border-radius: 50px;
+    .right-area {
+      flex: 1 0 auto;
+      // border: 1px solid red;
       display: flex;
       justify-content: center;
       align-items: center;
-      color: #64b5f6;
-      border: 2px solid #71787e;
-      transform: rotate(-50deg);
-      opacity: 0.5;
+
+      .icon-box {
+        width: 50px;
+        height: 50px;
+        border-radius: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #64b5f6;
+        border: 2px solid #71787e;
+        transform: rotate(-50deg);
+        opacity: 0.5;
+      }
     }
   }
 }
+
 </style>
