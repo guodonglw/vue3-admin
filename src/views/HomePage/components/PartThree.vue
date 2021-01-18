@@ -7,7 +7,8 @@
 </template>
 
 <script>
-import { onBeforeMount, onMounted, reactive, toRefs } from 'vue'
+import { useStore } from 'vuex'
+import { onBeforeMount, onMounted, reactive, toRefs, computed, watch } from 'vue'
 
 const chart1Options = {
   tooltip:{},
@@ -163,9 +164,13 @@ export default {
     const data = reactive({
       id: ['chart1', 'chart2', 'chart3']
     })
-    let chart1 = null
-    let chart2 = null
-    let chart3 = null
+    let chart1, chart2, chart3 = null
+    let store = useStore()
+    const fold = computed(() => store.state.fold)
+
+    watch(fold, () => {
+      resize()
+    })
 
     const drawChart = () => {
       chart1 = echarts.init(document.getElementById('chart1'))
@@ -177,9 +182,13 @@ export default {
     }
 
     const resize = () => {
-      chart1 && chart1.resize()
-      chart2 && chart2.resize()
-      chart3 && chart3.resize()
+      if (chart1 && chart2 && chart3) {
+        [chart1, chart2, chart1].forEach(item => {
+          setTimeout(() => {
+            item.resize()
+          })
+        })
+      }
     }
 
     onMounted(() => {

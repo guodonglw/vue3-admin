@@ -5,12 +5,14 @@
 </template>
 
 <script>
-// import echarts from 'echarts'
-import { onBeforeUnmount, onMounted, reactive } from 'vue'
+import { useStore } from 'vuex'
+import { onBeforeUnmount, onMounted, reactive, watch, computed } from 'vue'
 
 export default {
   setup () {
+    let store = useStore()
     let chart = null
+    const fold = computed(() => store.state.fold)
     const drawChart = () => {
       chart = echarts.init(document.getElementById('linechart'))
       chart.setOption({
@@ -71,8 +73,16 @@ export default {
     }
 
     const resize = () => {
-      chart && chart.resize()
+      if (chart) {
+        setTimeout(() => {
+          chart.resize()
+        })
+      }
     }
+    
+    watch(fold, () => {
+      resize()
+    })
 
     onMounted (() => {
       setTimeout(() => {

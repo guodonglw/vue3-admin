@@ -85,7 +85,7 @@ export default {
       border-radius: 10px;
       // height: 100%;
       min-height: 100%;
-      padding: 10px 20px;
+      padding: 20px 20px;
     }
   }
 }

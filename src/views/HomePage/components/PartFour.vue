@@ -27,7 +27,8 @@
 </template>
 
 <script>
-import { reactive, toRefs } from 'vue'
+import { useStore } from 'vuex'
+import { onMounted, reactive, toRefs } from 'vue'
 
 export default {
   setup () {
@@ -87,10 +88,10 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
 
   .left-area {
-    flex: 0 0 64%;
+    flex: 0 1 64%;
     padding: 10px;
     // border: 1px solid blue;
     background-color: rgba(	176,196,222, 0.2);
@@ -98,7 +99,7 @@ export default {
   }
 
   .right-area {
-    flex: 0 0 34%;
+    flex: 0 1 34%;
     // border: 1px solid blue;
     min-height: 100px;
     text-align: center;
