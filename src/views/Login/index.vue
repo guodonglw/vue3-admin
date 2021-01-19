@@ -60,6 +60,10 @@ export default {
 </script>
 
 <style lang='less' scoped>
+:deep(.el-input) {
+  width: 100%;
+}
+
 .container {
   width: 100vw;
   height: 100vh;
