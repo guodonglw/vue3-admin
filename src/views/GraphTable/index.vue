@@ -8,7 +8,7 @@
   </section>
 
   <section class="middle-area margin-top-twenty">
-    <el-table :data="showData" border="0" cellspacing="0" cellpadding="0">
+    <el-table :data="showData" border cellspacing="0" cellpadding="0">
       <el-table-column
         v-for="(item, index) in tableRow"
         :prop="item.prop"
@@ -26,13 +26,19 @@
     </el-table>
   </section>
 
-  <section class="bottom-area margin-top-twenty"></section>
+  <section class="bottom-area margin-top-twenty">
+    <MyPage :total='total' v-model:currentPage='currentPage'/>
+  </section>
 </template>
 
 <script>
-import { onMounted, reactive, toRefs } from "vue";
+import { computed, nextTick, onMounted, reactive, toRefs, watch } from "vue"
+import MyPage from '/@/components/MyPage/index.vue'
 
 export default {
+  components: {
+    MyPage
+  },
   setup() {
     const data = reactive({
       params: {
@@ -56,9 +62,26 @@ export default {
         {
           prop: "tag",
           label: "标签"
-        },
+        }
       ],
+      currentPage: 1
     })
+
+    const total = computed(() => {
+      if (data.params.id) {
+        return data.showData.length
+      } else {
+        return data.tableData.length
+      }
+    })
+
+    watch(() => data.currentPage, (newValue, oldValue) => {
+      pageData()
+    })
+
+    const pageData = () => {
+      data.showData = data.tableData.slice(10 * (data.currentPage - 1), 10 * data.currentPage)
+    }
 
     const search = () => {
       if (data.params.id) {
@@ -69,7 +92,7 @@ export default {
     }
 
     const init = () => {
-      for (let i = 0; i < 10; i++) {
+      for (let i = 0; i < 20; i++) {
         data.tableData.push(
           {
             id: i + 1,
@@ -80,7 +103,7 @@ export default {
           }
         )
       }
-      data.showData = data.tableData
+      pageData()
     }
 
     onMounted(() => {
@@ -89,6 +112,7 @@ export default {
 
     return {
       ...toRefs(data),
+      total,
       search
     };
   },
@@ -109,7 +133,7 @@ export default {
 }
 
 .bottom-area {
-  height: 100px;
-  border: 1px solid gold;
+  // height: 100px;
+  // border: 1px solid gold;
 }
 </style>

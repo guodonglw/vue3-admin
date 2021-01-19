@@ -62,3 +62,44 @@
     }
   }
 }
+
+// el-pagination
+.el-pagination {
+  // margin: 20px 30px 20px 0;
+  height: 36px;
+  text-align: right;    //居右
+  color: #96abc6;
+  //由于select的height为36，故以下整体调整
+  button, span:not([class*=suffix]) {
+    height: 36px;
+    line-height: 36px;
+  }
+  .el-pager {
+    li {
+      height: 36px;
+      line-height: 36px;
+      width: 36px;
+      color: #96abc6;
+      border-radius: 5px;
+      background-color: #f4f4f5;
+      margin: 0 5px;
+      &:not(.disabled).active {
+        background-color: @base;
+        color: #fff;
+      }
+    }
+  }
+  .el-pagination__total, .el-icon-arrow-left, .el-icon-arrow-right {
+    color: #96abc6;
+  }
+  .el-pagination__jump {
+    color: #96abc6;
+    .el-input {
+      width: 80px;
+      .el-input__inner {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+}
